@@ -1,7 +1,7 @@
 # Swasa Maha Vidya
 
-Day pages, shared CSS, and the index live in this folder.
+- Full notes: `day-01.html` …
+- Q&A: `qna/day-01.html` …
 
-Live URL:
-
-https://anemdhana.github.io/pssm-swadhyaya-notes/swasa_maha_vidya/day-01.html
+https://anemdhana.github.io/pssm-swadhyaya-notes/swasa_maha_vidya/day-01.html  
+https://anemdhana.github.io/pssm-swadhyaya-notes/swasa_maha_vidya/qna/day-01.html

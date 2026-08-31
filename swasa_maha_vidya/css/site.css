@@ -154,6 +154,83 @@ a {
   color: var(--ink-muted);
 }
 
+.post-card h1 {
+  margin: 0 0 18px;
+  font-size: 22px;
+  color: #3d2a18;
+  line-height: 1.35;
+}
+
+.post-card h2 {
+  margin: 28px 0 12px;
+  font-size: 17px;
+  color: var(--heading);
+  border-bottom: 1px solid rgba(186, 122, 58, 0.3);
+  padding-bottom: 6px;
+}
+
+.post-card > p {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.highlight {
+  background: rgba(255, 248, 235, 0.9);
+  padding: 14px 16px;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+  margin: 18px 0;
+  font-size: 14.5px;
+}
+
+.remember-box,
+.practice-box {
+  margin-top: 24px;
+  padding: 16px 18px;
+  border-radius: 14px;
+}
+
+.remember-box {
+  background: rgba(255, 250, 240, 0.95);
+  border: 1px solid rgba(186, 122, 58, 0.35);
+}
+
+.practice-box {
+  background: rgba(240, 248, 240, 0.9);
+  border: 1px solid rgba(80, 140, 80, 0.3);
+}
+
+.remember-box h2,
+.practice-box h2 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.practice-box h2 {
+  color: #3d6b3d;
+}
+
+.remember-box ul,
+.practice-box ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.remember-box li,
+.practice-box li,
+.practice-box p {
+  margin-bottom: 8px;
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.hub-second {
+  margin-top: 28px;
+}
+
 .qa-block {
   margin-top: 18px;
   padding: 16px 18px;
@@ -306,5 +383,9 @@ a {
   .author-row img {
     width: 56px;
     height: 56px;
+  }
+
+  .post-card h1 {
+    font-size: 19px;
   }
 }
