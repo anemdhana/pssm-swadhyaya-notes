@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "swasa_maha_vidya/**"
+      - "21-Day-Meditation-with-Music-PMMA/**"
       - ".github/workflows/github-pages.yml"
   workflow_dispatch:
 
