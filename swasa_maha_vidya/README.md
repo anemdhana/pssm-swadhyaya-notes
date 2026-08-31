@@ -1,6 +1,6 @@
 # Swasa Maha Vidya
 
-Teacher pages live in `drNewtonKondaveti/`.
+Day pages, shared CSS, and the index live in this folder.
 
 On GitHub Pages this folder is the site root:
 

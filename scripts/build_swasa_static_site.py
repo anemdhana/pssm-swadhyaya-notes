@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 SRC = Path(r"C:\Users\dhana\Downloads\Swasa_Maha_Vidya_All_Days_Expanded_QA_Blogger")
-OUT = Path(__file__).resolve().parents[1] / "swasa_maha_vidya" / "drNewtonKondaveti"
+OUT = Path(__file__).resolve().parents[1] / "swasa_maha_vidya"
 
 PAGES = [
     {
@@ -119,7 +119,6 @@ def chrome(current_out: str) -> str:
       </a>
       <nav>
         <a href="index.html">All days</a>
-        <a href="../index.html">Series home</a>
       </nav>
     </header>
     <nav class="day-strip" aria-label="Days">
@@ -189,7 +188,7 @@ def write_teacher_index() -> None:
         <span>Dr. Newton Kondaveti</span>
       </a>
       <nav>
-        <a href="../index.html">Series home</a>
+        <a href="index.html">All days</a>
       </nav>
     </header>
     <div class="hub-card">
@@ -207,36 +206,8 @@ def write_teacher_index() -> None:
     (OUT / "index.html").write_text(html, encoding="utf-8")
 
 
-def write_series_index() -> None:
-    root = OUT.parent
-    html = """<!DOCTYPE html>
-<html lang="te">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Swasa Maha Vidya</title>
-  <link rel="stylesheet" href="drNewtonKondaveti/css/site.css">
-</head>
-<body>
-  <div class="site-wrap">
-    <div class="hub-card">
-      <h1>Swasa Maha Vidya</h1>
-      <p class="lede">శ్వాస మహావిద్య ప్రశ్నోత్తరాలు.</p>
-      <ul class="day-list">
-        <li>
-          <a href="drNewtonKondaveti/index.html">
-            <strong>Dr. Newton Kondaveti</strong>
-            <em>Days 1–11 and Bonus</em>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</body>
-</html>
-"""
-    (root / "index.html").write_text(html, encoding="utf-8")
-    (root / ".nojekyll").write_text("", encoding="utf-8")
+def write_nojekyll() -> None:
+    (OUT / ".nojekyll").write_text("", encoding="utf-8")
 
 
 def main() -> None:
@@ -248,9 +219,9 @@ def main() -> None:
         html = wrap(extract_title(text), extract_article_inner(text), i)
         dest = OUT / page["out"]
         dest.write_text(html, encoding="utf-8")
-        print(f"Wrote {dest.relative_to(OUT.parent.parent)}")
+        print(f"Wrote {dest.relative_to(OUT.parent)}")
     write_teacher_index()
-    write_series_index()
+    write_nojekyll()
     print("Wrote indexes")
 
 

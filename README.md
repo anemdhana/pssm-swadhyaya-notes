@@ -7,17 +7,15 @@ Static notes for PSSM swadhyaya. HTML is meant to be viewed on GitHub Pages, not
 ```text
 swasa_maha_vidya/
   index.html
-  drNewtonKondaveti/
-    index.html
-    day-01.html … day-11.html
-    bonus.html
-    css/site.css
+  day-01.html … day-11.html
+  bonus.html
+  css/site.css
 ```
 
 ## Live URL (after Pages is enabled)
 
 - https://anemdhana.github.io/pssm-swadhyaya-notes/
-- https://anemdhana.github.io/pssm-swadhyaya-notes/drNewtonKondaveti/day-01.html
+- https://anemdhana.github.io/pssm-swadhyaya-notes/day-01.html
 
 ## Enable GitHub Pages (once)
 
