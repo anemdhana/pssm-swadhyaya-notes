@@ -1,6 +1,6 @@
 # pssm-swadhyaya-notes
 
-Static notes for PSSM swadhyaya. HTML is meant to be viewed on GitHub Pages, not as raw files on github.com.
+Static notes for PSSM swadhyaya. GitHub Pages serves the **repository root**, so day pages keep the `swasa_maha_vidya/` path in the URL.
 
 ## Site layout
 
@@ -12,16 +12,12 @@ swasa_maha_vidya/
   css/site.css
 ```
 
-## Live URL (after Pages is enabled)
+## Live URLs
 
-- https://anemdhana.github.io/pssm-swadhyaya-notes/
-- https://anemdhana.github.io/pssm-swadhyaya-notes/day-01.html
+- https://anemdhana.github.io/pssm-swadhyaya-notes/swasa_maha_vidya/
+- https://anemdhana.github.io/pssm-swadhyaya-notes/swasa_maha_vidya/day-01.html
 
-## Enable GitHub Pages (once)
-
-1. Repo **Settings → Pages**
-2. Source: **GitHub Actions**
-3. Push to `main`, or run the **Deploy GitHub Pages** workflow
+Pages source: **Deploy from a branch** → `main` → `/ (root)`. Do not set the published folder to `swasa_maha_vidya`, or the extra path segment will disappear.
 
 ## Rebuild from Blogger HTML
 
