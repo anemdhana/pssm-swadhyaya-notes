@@ -6,7 +6,9 @@ import re
 from pathlib import Path
 
 NOTES_SRC = Path(r"C:\Users\dhana\Downloads\Swasa_Maha_Vidya_All_Days_1-12_Full_Enhanced")
-QA_SRC = Path(r"C:\Users\dhana\Downloads\Swasa_Maha_Vidya_All_Days_Expanded_QA_Blogger")
+QA_SRC = Path(
+    r"C:\Users\dhana\GitHub\pssm-spiritual-text-work\blogger-posts\DrNewtonKondaveti"
+)
 OUT = Path(__file__).resolve().parents[1] / "swasa_maha_vidya"
 QNA_OUT = OUT / "qna"
 
@@ -101,7 +103,7 @@ PAGES = [
     },
     {
         "notes_src": "Swasa_Maha_Vidya_Bonus_Sections.html",
-        "qa_src": "Swasa_Maha_Vidya_Bonus_QA_Blogger.html",
+        "qa_src": "Swasa_Maha_Vidya_Day12_Bonus_QA_Blogger.html",
         "out": "bonus.html",
         "label": "B",
         "hub_title": "Bonus",
@@ -294,16 +296,9 @@ def write_indexes() -> None:
     )
 
 
-def main() -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
+def write_qna_pages() -> None:
     QNA_OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "css").mkdir(exist_ok=True)
     for i, page in enumerate(PAGES):
-        notes_text = (NOTES_SRC / page["notes_src"]).read_text(encoding="utf-8")
-        notes_html = wrap("notes", extract_title(notes_text), extract_article_inner(notes_text), i)
-        (OUT / page["out"]).write_text(notes_html, encoding="utf-8")
-        print(f"Wrote notes/{page['out']}")
-
         qa_text = (QA_SRC / page["qa_src"]).read_text(encoding="utf-8")
         qa_html = wrap("qna", extract_title(qa_text), extract_article_inner(qa_text), i)
         (QNA_OUT / page["out"]).write_text(qa_html, encoding="utf-8")
@@ -312,5 +307,25 @@ def main() -> None:
     print("Wrote indexes")
 
 
+def write_notes_pages() -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "css").mkdir(exist_ok=True)
+    for i, page in enumerate(PAGES):
+        notes_text = (NOTES_SRC / page["notes_src"]).read_text(encoding="utf-8")
+        notes_html = wrap("notes", extract_title(notes_text), extract_article_inner(notes_text), i)
+        (OUT / page["out"]).write_text(notes_html, encoding="utf-8")
+        print(f"Wrote notes/{page['out']}")
+
+
+def main(qna_only: bool = False) -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "css").mkdir(exist_ok=True)
+    if not qna_only:
+        write_notes_pages()
+    write_qna_pages()
+
+
 if __name__ == "__main__":
-    main()
+    import sys
+
+    main(qna_only="--qna-only" in sys.argv)
