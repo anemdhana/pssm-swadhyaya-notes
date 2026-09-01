@@ -6,6 +6,8 @@ on:
     paths:
       - "swasa_maha_vidya/**"
       - "21-Day-Meditation-with-Music-PMMA/**"
+      - "patriji_teachings/**"
+      - "person-transformation-journey/**"
       - ".github/workflows/github-pages.yml"
   workflow_dispatch:
 
