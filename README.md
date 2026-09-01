@@ -23,6 +23,12 @@ patriji_teachings/
   difficult-family-members.html
   css/site.css
 
+master_speech/
+  index.html
+  difficult-family-members.html
+  conquering-mind-meditation.html
+  css/site.css
+
 person-transformation-journey/
   index.html
   vishwa-raiyani-life-changing-experience.html
@@ -35,6 +41,7 @@ person-transformation-journey/
 - Q&A: https://anemdhana.github.io/pssm-swadhyaya-notes/swasa_maha_vidya/qna/day-01.html
 - PMMA 21-day: https://anemdhana.github.io/pssm-swadhyaya-notes/21-Day-Meditation-with-Music-PMMA/day-01.html
 - Patriji: https://anemdhana.github.io/pssm-swadhyaya-notes/patriji_teachings/difficult-family-members.html
+- Master speech: https://anemdhana.github.io/pssm-swadhyaya-notes/master_speech/conquering-mind-meditation.html
 - Transformation journeys: https://anemdhana.github.io/pssm-swadhyaya-notes/person-transformation-journey/vishwa-raiyani-life-changing-experience.html
 
 Pages source: **Deploy from a branch** → `main` → `/ (root)`.

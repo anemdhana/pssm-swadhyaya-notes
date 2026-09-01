@@ -7,6 +7,7 @@ on:
       - "swasa_maha_vidya/**"
       - "21-Day-Meditation-with-Music-PMMA/**"
       - "patriji_teachings/**"
+      - "master_speech/**"
       - "person-transformation-journey/**"
       - ".github/workflows/github-pages.yml"
   workflow_dispatch:
