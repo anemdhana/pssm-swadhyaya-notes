@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 SRC = Path(r"C:\Users\dhana\Downloads\21-Day-Meditation-with-Music-PMMA\21-day-meditation")
-OUT = Path(__file__).resolve().parents[1] / "21-Day-Meditation-with-Music-PMMA"
+OUT = Path(__file__).resolve().parents[1] / "Session-Schedules" / "21-Day-Meditation-with-Music-PMMA"
 
 HUB_SUBS = [
     "Introduction to Sound & Breath",
@@ -145,7 +145,7 @@ def wrap(title: str, inner: str, idx: int) -> str:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="../../css/site.css">
 </head>
 <body>
   <div class="site-wrap">
@@ -180,7 +180,7 @@ def write_index() -> None:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>21-Day Meditation with Music · PMMA</title>
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="../../css/site.css">
 </head>
 <body>
   <div class="site-wrap">
@@ -212,7 +212,6 @@ def main() -> None:
     if not SRC.is_dir():
         raise SystemExit(f"Source folder not found: {SRC}")
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "css").mkdir(exist_ok=True)
     for i, page in enumerate(PAGES):
         src_path = SRC / page["src"]
         src_html = src_path.read_text(encoding="utf-8")

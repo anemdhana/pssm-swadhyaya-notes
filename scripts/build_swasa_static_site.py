@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Build GitHub Pages site: full notes + Q&A in swasa_maha_vidya/qna/."""
+"""Build GitHub Pages site: full notes + Q&A under DrNewton/swasa_maha_vidya/."""
 from __future__ import annotations
 
 import re
@@ -9,7 +9,7 @@ NOTES_SRC = Path(r"C:\Users\dhana\Downloads\Swasa_Maha_Vidya_All_Days_1-12_Full_
 QA_SRC = Path(
     r"C:\Users\dhana\GitHub\pssm-spiritual-text-work\blogger-posts\DrNewtonKondaveti"
 )
-OUT = Path(__file__).resolve().parents[1] / "swasa_maha_vidya"
+OUT = Path(__file__).resolve().parents[1] / "DrNewton" / "swasa_maha_vidya"
 QNA_OUT = OUT / "qna"
 
 PAGES = [
@@ -175,7 +175,7 @@ def pager(_kind: str, idx: int) -> str:
 
 
 def wrap(kind: str, title: str, inner: str, idx: int) -> str:
-    css = "css/site.css" if kind == "notes" else "../css/site.css"
+    css = "../../css/site.css" if kind == "notes" else "../../../css/site.css"
     current = PAGES[idx]["out"]
     return f"""<!DOCTYPE html>
 <html lang="te">
@@ -247,7 +247,7 @@ def write_indexes() -> None:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>శ్వాస మహావిద్య · Dr. Newton Kondaveti</title>
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="../../css/site.css">
 </head>
 <body>
   <div class="site-wrap">
@@ -288,7 +288,7 @@ def write_indexes() -> None:
             "ప్రశ్నోత్తరాలు",
             "జ్ఞానోదయం · Swasa Maha Vidya. డా. న్యూటన్ కొండవేటి బోధన ఆధారంగా.",
             qna_list,
-            "../css/site.css",
+            "../../../css/site.css",
             "../index.html",
             '<a href="../index.html">బోధన</a>\n        <a href="index.html">ప్రశ్నోత్తరాలు</a>',
         ),
@@ -309,7 +309,6 @@ def write_qna_pages() -> None:
 
 def write_notes_pages() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "css").mkdir(exist_ok=True)
     for i, page in enumerate(PAGES):
         notes_text = (NOTES_SRC / page["notes_src"]).read_text(encoding="utf-8")
         notes_html = wrap("notes", extract_title(notes_text), extract_article_inner(notes_text), i)
@@ -319,7 +318,6 @@ def write_notes_pages() -> None:
 
 def main(qna_only: bool = False) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "css").mkdir(exist_ok=True)
     if not qna_only:
         write_notes_pages()
     write_qna_pages()
