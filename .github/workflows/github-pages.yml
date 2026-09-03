@@ -23,21 +23,38 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Point every page at the single global css/site.css (by folder depth)
+      # Point every page at the single global css/site.css (path depends on depth)
       - name: Link pages to global site.css
         run: |
           set -euo pipefail
-          # depth 1: Folder/page.html
-          find . -mindepth 2 -maxdepth 2 -name '*.html' -print0 \
-            | xargs -0 -r sed -i -E 's|href="(\.\./)*css/site\.css"|href="../css/site.css"|g'
-          # depth 2: A/B/page.html
-          find . -mindepth 3 -maxdepth 3 -name '*.html' -print0 \
-            | xargs -0 -r sed -i -E 's|href="(\.\./)*css/site\.css"|href="../../css/site.css"|g'
-          # depth 3: A/B/C/page.html (e.g. qna)
-          find . -mindepth 4 -maxdepth 4 -name '*.html' -print0 \
-            | xargs -0 -r sed -i -E 's|href="(\.\./)*css/site\.css"|href="../../../css/site.css"|g'
-          echo "CSS links normalized:"
-          grep -R --include='*.html' -n 'stylesheet' . | head -40
+          python3 << 'PY'
+          from pathlib import Path
+          import re
+
+          root = Path(".")
+          for html in root.rglob("*.html"):
+              if html.name.startswith("."):
+                  continue
+              try:
+                  rel = html.relative_to(root)
+              except ValueError:
+                  continue
+              # number of parent dirs under repo root
+              depth = len(rel.parts) - 1
+              if depth <= 0:
+                  href = "css/site.css"
+              else:
+                  href = "../" * depth + "css/site.css"
+              text = html.read_text(encoding="utf-8")
+              new_text, n = re.subn(
+                  r'href=["\'](?:\.\./)*css/site\.css["\']',
+                  f'href="{href}"',
+                  text,
+              )
+              if n:
+                  html.write_text(new_text, encoding="utf-8")
+                  print(f"{rel}: -> {href} ({n})")
+          PY
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

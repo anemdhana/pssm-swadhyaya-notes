@@ -10,28 +10,31 @@ Static notes for PSSM swadhyaya. GitHub Pages serves the **repository root**.
 index.html                          # site hub
 css/site.css                        # global theme (single stylesheet)
 
-DrNewton/swasa_maha_vidya/
-  index.html, day-01…11, bonus.html
-  qna/ …
+Master-Speeches/
+  DrNewton/Swasa Maha Vidya/        # teaching + qna/
+  Brahmarshi Patriji/
+  Brahmarshi Premnath/
 
-Session-Schedules/21-Day-Meditation-with-Music-PMMA/
-  index.html, day-01…21
+Session-Schedules/
+  21-Day-Meditation-with-Music-PMMA/
 
-BrahmarshiPatriji/
-BrahmarshiPremnath/
 Transformation-Journeys/
+
 Book-Reading-Notes/
-Ramtha/
+  Soul's Journey/
+  Ramtha/
 ```
 
 ## Notable URLs
 
 - Hub: https://anemdhana.github.io/pssm-swadhyaya-notes/
-- Swasa notes: …/DrNewton/swasa_maha_vidya/day-01.html
-- Swasa Q&A: …/DrNewton/swasa_maha_vidya/qna/day-01.html
+- Swasa: …/Master-Speeches/DrNewton/Swasa%20Maha%20Vidya/day-01.html
+- Swasa Q&A: …/Master-Speeches/DrNewton/Swasa%20Maha%20Vidya/qna/day-01.html
 - PMMA 21-day: …/Session-Schedules/21-Day-Meditation-with-Music-PMMA/day-01.html
 
 Pages source: **Deploy from a branch** → `main` → `/ (root)`.
+
+On deploy, the workflow rewrites every HTML `stylesheet` link to the global `css/site.css` based on folder depth (works after reorganizations).
 
 ## Rebuild (local)
 
@@ -40,4 +43,4 @@ python scripts/build_swasa_static_site.py
 python scripts/build_pmma_21day_static_site.py
 ```
 
-Build scripts write under the folder names above and link to the global `css/site.css`.
+Update `OUT` paths in those scripts if folder names change again.
