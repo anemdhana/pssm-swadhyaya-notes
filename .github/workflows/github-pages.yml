@@ -3,13 +3,6 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
-    paths:
-      - "swasa_maha_vidya/**"
-      - "21-Day-Meditation-with-Music-PMMA/**"
-      - "patriji_teachings/**"
-      - "master_speech/**"
-      - "person-transformation-journey/**"
-      - ".github/workflows/github-pages.yml"
   workflow_dispatch:
 
 permissions:
