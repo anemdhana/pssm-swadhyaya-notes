@@ -37,6 +37,15 @@
     }
     .site-brand span { display: block; font-size: 0.75rem; font-weight: 400; color: var(--muted); }
     nav a { margin-left: 1rem; color: var(--accent); text-decoration: none; font-size: 0.95rem; }
+    .author-row {
+      display: flex; gap: 1rem; align-items: center; margin: 1.5rem 0 1rem;
+    }
+    .author-row img {
+      width: 72px; height: 72px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--border);
+    }
+    .author-info strong { display: block; font-size: 1.05rem; }
+    .author-info span { font-size: 0.85rem; color: var(--muted); }
     .eyebrow {
       font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase;
       color: var(--accent); margin: 0 0 0.35rem;
@@ -48,6 +57,21 @@
     .intro {
       font-size: 1.05rem; color: var(--muted); margin-bottom: 1.75rem;
       border-left: 3px solid var(--shloka-border); padding-left: 1rem;
+    }
+    .hero-image {
+      width: 100%;
+      max-width: 640px;
+      border-radius: 10px;
+      margin: 1.5rem auto;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .image-caption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: -0.5rem;
+      margin-bottom: 1.5rem;
     }
     .principle {
       background: var(--card);
@@ -140,6 +164,7 @@
     }
     @media (max-width: 600px) {
       h1 { font-size: 1.5rem; }
+      .author-row img { width: 56px; height: 56px; }
       .principle { padding: 1.15rem 1.2rem; }
     }
   </style>
@@ -156,14 +181,25 @@
       </nav>
     </header>
 
-    <article>
-      <p class="eyebrow">Pyramid Spiritual Societies Movement · Master Reference</p>
+    <article class="post-card">
+      <div class="author-row">
+        <img src="https://i.ytimg.com/vi/dD6RZOmt7Cg/hqdefault.jpg" alt="Brahmarshi Patriji – 18 Guiding Principles">
+        <div class="author-info">
+          <strong>Brahmarshi Patriji</strong>
+          <span>Founder · Pyramid Spiritual Societies Movement</span>
+        </div>
+      </div>
+
+      <p class="eyebrow">Anapanasati · 18 Guiding Principles · Complete Practical Guide</p>
       <h1>18 Guiding Principles<br>Complete Practical Guide</h1>
       <p class="intro">
         A single, deep, practical reference that brings together the teachings of
         <strong>Brahmarshi Patriji</strong>, <strong>Suvarna Suvvi</strong> and <strong>Padmavathi garu</strong>.
         Use this page every day for self-reflection, self-checking and steady growth as a Pyramid Master.
       </p>
+
+      <img class="hero-image" src="https://i.ytimg.com/vi/dD6RZOmt7Cg/maxresdefault.jpg" alt="Brahmarshi Patriji speaking on the 18 Guiding Principles">
+      <p class="image-caption">Foundational teaching · Brahmarshi Patriji · Consolidated with insights from Suvarna Suvvi & Padmavathi garu</p>
 
       <!-- 1 -->
       <div class="principle">
