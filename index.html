@@ -3,8 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PSSM Swadhyaya Notes</title>
+  <title>PSSM Swadhyaya Notes · Pyramid Spiritual Societies Movement</title>
   <link rel="stylesheet" href="css/site.css">
+  <style>
+    /* Homepage-specific enhancements */
+    .search-box {
+      margin: 0 0 22px;
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 16px 12px 42px;
+      font-size: 15px;
+      font-family: Georgia, serif;
+      border: 1px solid rgba(186, 122, 58, 0.35);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-box input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(186, 122, 58, 0.15);
+    }
+    .search-box input::placeholder {
+      color: #a08a72;
+    }
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: var(--accent);
+      pointer-events: none;
+    }
+    .collection-group {
+      margin-bottom: 28px;
+    }
+    .collection-group:last-of-type {
+      margin-bottom: 8px;
+    }
+    .group-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+    .group-title span {
+      background: rgba(186, 122, 58, 0.12);
+      color: var(--accent-dark);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .item-card {
+      display: block;
+      padding: 13px 15px;
+      margin-bottom: 8px;
+      border-radius: 12px;
+      text-decoration: none;
+      background: var(--qa);
+      border: 1px solid rgba(186, 122, 58, 0.16);
+      color: var(--ink);
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .item-card:hover {
+      border-color: var(--accent);
+      background: rgba(255, 252, 247, 0.98);
+    }
+    .item-card strong {
+      display: block;
+      font-size: 14.5px;
+      color: var(--heading);
+      margin-bottom: 2px;
+    }
+    .item-card em {
+      font-style: normal;
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+    .item-card .lang-tag {
+      display: inline-block;
+      margin-left: 6px;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: rgba(186, 122, 58, 0.12);
+      color: var(--accent-dark);
+      vertical-align: middle;
+    }
+    .item-card.hidden {
+      display: none;
+    }
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 24px 16px;
+      color: var(--ink-muted);
+      font-size: 14.5px;
+    }
+    .no-results.visible {
+      display: block;
+    }
+    .hub-card h1 {
+      margin-bottom: 4px;
+    }
+    .hub-card .lede {
+      margin-bottom: 18px;
+    }
+  </style>
 </head>
 <body>
   <div class="site-wrap">
@@ -13,101 +130,170 @@
         <span>Static teaching notes · Pyramid Spiritual Societies Movement</span>
       </a>
     </header>
+
     <div class="hub-card">
       <h1>Collections</h1>
-      <p class="lede">Study notes from PSSM masters and related teachings. Open a section below.</p>
+      <p class="lede">Study notes from PSSM masters and related teachings. Search or browse by section.</p>
 
-      <p class="week-label">Master speeches · Dr. Newton Kondaveti</p>
-      <ul class="day-list">
-        <li>
-          <a href="Master-Speeches/DrNewton/Swasa%20Maha%20Vidya/index.html">
-            <strong>శ్వాస మహావిద్య · Swasa Maha Vidya</strong>
-            <em>11 days + bonus · full teaching notes and Q&amp;A</em>
-          </a>
-        </li>
-        <li>
-          <a href="Master-Speeches/DrNewton/2026-09-04-Sri-Krishnashtami-Homework.html">
-            <strong>Sri Krishna Homework · Krishnashtami</strong>
-            <em>The Eight Living Gunas of Sri Krishna</em>
-          </a>
-        </li>
-        <li>
-          <a href="Master-Speeches/DrNewton/2026-09-04-Sri-Krishnashtami-Homework-te.html">
-            <strong>శ్రీ కృష్ణా హోమ్‌వర్క్ ·కృష్ణాష్టమి</strong>
-            <em>శ్రీ కృష్ణా దైనందిన జీవితంలో పూర్తిగా జీవించేలా నాకు సహాయం చేయండి.</em>
-          </a>
-        </li>
-      </ul>
+      <!-- Search -->
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input type="search" id="searchInput" placeholder="Search by title, master, or topic…" autocomplete="off">
+      </div>
 
-      <p class="week-label">Master speeches · other masters</p>
-      <ul class="day-list">
-        <li>
-          <a href="Master-Speeches/Brahmarshi%20Patriji/difficult-family-members.html">
-            <strong>Brahmarshi Patriji · Difficult Family Members</strong>
-            <em>Communication, attachment, and staying in relationship</em>
-          </a>
-        </li>
-        <li>
-          <a href="Master-Speeches/Brahmarshi%20Premnath/conquering-mind-meditation.html">
-            <strong>Brahmarshi Premnath · Conquering the Mind</strong>
-            <em>Oneness, Vayu-Putra, practical meditation</em>
-          </a>
-        </li>
-        <li>
-          <a href="Master-Speeches/gita-covid-19.html">
-            <strong>Gita · COVID-19</strong>
-            <em>Chapter 12, verses 1-13</em>
-          </a>
-        </li>
-      </ul>
+      <div id="noResults" class="no-results">No matching pages found. Try a different keyword.</div>
 
-      <p class="week-label">Session schedules</p>
-      <ul class="day-list">
-        <li>
-          <a href="Session-Schedules/21-Day-Meditation-with-Music-PMMA/index.html">
-            <strong>21-Day Meditation with Music · PMMA</strong>
-            <em>Nada Yoga, chakras, frequencies · Pyramid Music Meditation Academy</em>
-          </a>
-        </li>
-      </ul>
+      <!-- ========== 18 GUIDING PRINCIPLES ========== -->
+      <div class="collection-group" data-group>
+        <p class="group-title">18 Guiding Principles <span>New</span></p>
 
-      <p class="week-label">Transformation journeys</p>
-      <ul class="day-list">
-        <li>
-          <a href="Transformation-Journeys/index.html">
-            <strong>Person Transformation Journey</strong>
-            <em>Lived stories · Vishwa Raiyani and more</em>
-          </a>
-        </li>
-      </ul>
+        <a class="item-card" href="Master-Speeches/Brahmarshi%20Patriji/18%20Guiding%20Principles/18-guiding-principles-by-patriji.html" data-search="patriji 18 guiding principles adarsha sutras anapanasati">
+          <strong>Brahmarshi Patriji · 18 Guiding Principles <span class="lang-tag">EN</span></strong>
+          <em>Core teaching of the Pyramid Spiritual Societies Movement explained by the founder</em>
+        </a>
+        <a class="item-card" href="Master-Speeches/Brahmarshi%20Patriji/18%20Guiding%20Principles/18-guiding-principles-by-patriji-te.html" data-search="patriji 18 guiding principles adarsha sutras anapanasati telugu">
+          <strong>బ్రహ్మర్షి పత్రీజీ · 18 ఆదర్శ సూత్రాలు <span class="lang-tag">TE</span></strong>
+          <em>పిరమిడ్ స్పిరిచువల్ సొసైటీస్ మూవ్‌మెంట్ యొక్క మూల సూత్రాలు</em>
+        </a>
 
-      <p class="week-label">Book reading notes</p>
-      <ul class="day-list">
-        <li>
-          <a href="Book-Reading-Notes/Soul's%20Journey/souls-journey-after-death-qa.html">
-            <strong>A Soul’s Journey · Life After Death Q&amp;A</strong>
-            <em>Peter Richelieu / Acharya</em>
-          </a>
-        </li>
-        <li>
-          <a href="Book-Reading-Notes/Ramtha/closed-mind-vs-opening.html">
-            <strong>Ramtha · Closed Mind vs Opening the Mind</strong>
-            <em>Comparison from The White Book</em>
-          </a>
-        </li>
-        <li>
-          <a href="Book-Reading-Notes/Ramtha/ramtha-fear-transformation.html">
-            <strong>Ramtha · Fear Transformation</strong>
-          </a>
-        </li>
-        <li>
-          <a href="Book-Reading-Notes/Ramtha/ramtha-life-after-death-qa.html">
-            <strong>Ramtha · Life After Death Q&amp;A</strong>
-          </a>
-        </li>
-      </ul>
+        <a class="item-card" href="Master-Speeches/Brahmarshi%20Patriji/18%20Guiding%20Principles/18-guiding-principles-by-suvarna-suvvi.html" data-search="suvarna suvvi 18 guiding principles adarsha sutras">
+          <strong>Suvarna Suvvi · 18 Guiding Principles <span class="lang-tag">EN</span></strong>
+          <em>Deep explanation with stories, garlic principle, writing experiences & family life</em>
+        </a>
+        <a class="item-card" href="Master-Speeches/Brahmarshi%20Patriji/18%20Guiding%20Principles/18-guiding-principles-by-suvarna-suvvi-te.html" data-search="suvarna suvvi 18 guiding principles adarsha sutras telugu">
+          <strong>సువర్ణ సువ్వి · 18 ఆదర్శ సూత్రాలు <span class="lang-tag">TE</span></strong>
+          <em>లోతైన వివరణ · కథలు, వెల్లుల్లి సూత్రం, అనుభవాలు రాయడం</em>
+        </a>
+
+        <a class="item-card" href="Master-Speeches/Brahmarshi%20Patriji/18%20Guiding%20Principles/pyramid-masters-guidelines.html" data-search="padmavathi garu pyramid masters guidelines personal suggestions 18 principles">
+          <strong>Padmavathi garu · Personal Guidelines for Pyramid Masters <span class="lang-tag">EN</span></strong>
+          <em>Always say Yes, keep a smile, self-love, forgiveness & daily self-check</em>
+        </a>
+        <a class="item-card" href="Master-Speeches/Brahmarshi%20Patriji/18%20Guiding%20Principles/pyramid-masters-guidelines-te.html" data-search="padmavathi garu pyramid masters guidelines personal suggestions 18 principles telugu">
+          <strong>పద్మావతి గారు · పిరమిడ్ మాస్టర్లకు వ్యక్తిగత సూచనలు <span class="lang-tag">TE</span></strong>
+          <em>ఎప్పుడూ యెస్, చిరునవ్వు, సెల్ఫ్-లవ్, క్షమాపణ & రోజువారీ సెల్ఫ్-చెక్</em>
+        </a>
+      </div>
+
+      <!-- ========== BRAHMARSHI PATRIJI (other) ========== -->
+      <div class="collection-group" data-group>
+        <p class="group-title">Brahmarshi Patriji</p>
+
+        <a class="item-card" href="Master-Speeches/Brahmarshi%20Patriji/difficult-family-members.html" data-search="patriji difficult family members communication attachment relationship">
+          <strong>Difficult Family Members</strong>
+          <em>Communication, attachment, and staying in relationship</em>
+        </a>
+      </div>
+
+      <!-- ========== DR NEWTON ========== -->
+      <div class="collection-group" data-group>
+        <p class="group-title">Dr. Newton Kondaveti</p>
+
+        <a class="item-card" href="Master-Speeches/DrNewton/Swasa%20Maha%20Vidya/index.html" data-search="newton kondaveti swasa maha vidya breath meditation 11 days">
+          <strong>శ్వాస మహావిద్య · Swasa Maha Vidya</strong>
+          <em>11 days + bonus · full teaching notes and Q&A</em>
+        </a>
+        <a class="item-card" href="Master-Speeches/DrNewton/2026-09-04-Sri-Krishnashtami-Homework.html" data-search="newton krishna homework krishnashtami eight gunas">
+          <strong>Sri Krishna Homework · Krishnashtami <span class="lang-tag">EN</span></strong>
+          <em>The Eight Living Gunas of Sri Krishna</em>
+        </a>
+        <a class="item-card" href="Master-Speeches/DrNewton/2026-09-04-Sri-Krishnashtami-Homework-te.html" data-search="newton krishna homework krishnashtami telugu">
+          <strong>శ్రీ కృష్ణా హోమ్‌వర్క్ · కృష్ణాష్టమి <span class="lang-tag">TE</span></strong>
+          <em>శ్రీ కృష్ణా దైనందిన జీవితంలో పూర్తిగా జీవించేలా</em>
+        </a>
+      </div>
+
+      <!-- ========== OTHER MASTERS ========== -->
+      <div class="collection-group" data-group>
+        <p class="group-title">Other Masters</p>
+
+        <a class="item-card" href="Master-Speeches/Brahmarshi%20Premnath/conquering-mind-meditation.html" data-search="premnath conquering mind meditation oneness vayu-putra">
+          <strong>Brahmarshi Premnath · Conquering the Mind</strong>
+          <em>Oneness, Vayu-Putra, practical meditation</em>
+        </a>
+        <a class="item-card" href="Master-Speeches/gita-covid-19.html" data-search="gita covid-19 chapter 12 bhakti yoga">
+          <strong>Gita · COVID-19</strong>
+          <em>Chapter 12, verses 1–13 · Bhakti Yoga</em>
+        </a>
+      </div>
+
+      <!-- ========== SESSION SCHEDULES ========== -->
+      <div class="collection-group" data-group>
+        <p class="group-title">Session Schedules</p>
+
+        <a class="item-card" href="Session-Schedules/21-Day-Meditation-with-Music-PMMA/index.html" data-search="21 day meditation music pmma nada yoga chakras frequencies">
+          <strong>21-Day Meditation with Music · PMMA</strong>
+          <em>Nada Yoga, chakras, frequencies · Pyramid Music Meditation Academy</em>
+        </a>
+      </div>
+
+      <!-- ========== TRANSFORMATION JOURNEYS ========== -->
+      <div class="collection-group" data-group>
+        <p class="group-title">Transformation Journeys</p>
+
+        <a class="item-card" href="Transformation-Journeys/index.html" data-search="transformation journey vishwa raiyani lived stories">
+          <strong>Person Transformation Journey</strong>
+          <em>Lived stories · Vishwa Raiyani and more</em>
+        </a>
+      </div>
+
+      <!-- ========== BOOK NOTES ========== -->
+      <div class="collection-group" data-group>
+        <p class="group-title">Book Reading Notes</p>
+
+        <a class="item-card" href="Book-Reading-Notes/Soul's%20Journey/souls-journey-after-death-qa.html" data-search="soul journey after death peter richelieu">
+          <strong>A Soul’s Journey · Life After Death Q&A</strong>
+          <em>Peter Richelieu / Acharya</em>
+        </a>
+        <a class="item-card" href="Book-Reading-Notes/Ramtha/closed-mind-vs-opening.html" data-search="ramtha closed mind opening white book">
+          <strong>Ramtha · Closed Mind vs Opening the Mind</strong>
+          <em>Comparison from The White Book</em>
+        </a>
+        <a class="item-card" href="Book-Reading-Notes/Ramtha/ramtha-fear-transformation.html" data-search="ramtha fear transformation">
+          <strong>Ramtha · Fear Transformation</strong>
+          <em>Working with fear on the path</em>
+        </a>
+        <a class="item-card" href="Book-Reading-Notes/Ramtha/ramtha-life-after-death-qa.html" data-search="ramtha life after death qa">
+          <strong>Ramtha · Life After Death Q&A</strong>
+          <em>Questions on the afterlife</em>
+        </a>
+      </div>
+
     </div>
-    <footer class="site-footer">PSSM Swadhyaya Notes · GitHub Pages</footer>
+
+    <footer class="site-footer">PSSM Swadhyaya Notes · GitHub Pages · Pyramid Spiritual Societies Movement</footer>
   </div>
+
+  <script>
+    (function () {
+      const input = document.getElementById('searchInput');
+      const cards = document.querySelectorAll('.item-card');
+      const groups = document.querySelectorAll('[data-group]');
+      const noResults = document.getElementById('noResults');
+
+      function filter() {
+        const q = input.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const text = (card.getAttribute('data-search') || '') + ' ' + card.textContent;
+          const match = !q || text.toLowerCase().includes(q);
+          card.classList.toggle('hidden', !match);
+          if (match) visibleCount++;
+        });
+
+        // Hide empty groups
+        groups.forEach(group => {
+          const hasVisible = group.querySelector('.item-card:not(.hidden)');
+          group.style.display = hasVisible ? '' : 'none';
+        });
+
+        noResults.classList.toggle('visible', visibleCount === 0 && q.length > 0);
+      }
+
+      input.addEventListener('input', filter);
+      input.addEventListener('search', filter); // clear button on some browsers
+    })();
+  </script>
 </body>
 </html>
