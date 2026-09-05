@@ -102,6 +102,11 @@
       color: var(--accent-dark);
       vertical-align: middle;
     }
+    .item-card.featured {
+      border-color: var(--accent);
+      background: rgba(255, 248, 235, 0.95);
+      box-shadow: 0 2px 8px rgba(186, 122, 58, 0.12);
+    }
     .item-card.hidden {
       display: none;
     }
@@ -146,6 +151,11 @@
       <!-- ========== 18 GUIDING PRINCIPLES ========== -->
       <div class="collection-group" data-group>
         <p class="group-title">18 Guiding Principles <span>New</span></p>
+
+        <a class="item-card featured" href="Master-Speeches/Brahmarshi%20Patriji/18%20Guiding%20Principles/18-guiding-principles-complete-guide.html" data-search="complete guide 18 guiding principles practical self reflection checklist patriji suvarna padmavathi">
+          <strong>★ Complete Practical Guide · All 18 Principles</strong>
+          <em>In-depth points, practical actions & daily self-reflection checklist consolidated from Patriji, Suvarna Suvvi & Padmavathi garu</em>
+        </a>
 
         <a class="item-card" href="Master-Speeches/Brahmarshi%20Patriji/18%20Guiding%20Principles/18-guiding-principles-by-patriji.html" data-search="patriji 18 guiding principles adarsha sutras anapanasati">
           <strong>Brahmarshi Patriji · 18 Guiding Principles <span class="lang-tag">EN</span></strong>
@@ -282,7 +292,6 @@
           if (match) visibleCount++;
         });
 
-        // Hide empty groups
         groups.forEach(group => {
           const hasVisible = group.querySelector('.item-card:not(.hidden)');
           group.style.display = hasVisible ? '' : 'none';
@@ -292,7 +301,7 @@
       }
 
       input.addEventListener('input', filter);
-      input.addEventListener('search', filter); // clear button on some browsers
+      input.addEventListener('search', filter);
     })();
   </script>
 </body>
